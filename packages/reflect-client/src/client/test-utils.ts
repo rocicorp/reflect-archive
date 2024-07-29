@@ -208,6 +208,9 @@ export function reflectForTest<MD extends MutatorDefs>(
   testReflectInstances.add(r);
   return r;
 }
+
+declare const teardown: (fn: () => Promise<void> | void) => void;
+
 // This file is imported in a worker and web-test-runner does not inject the
 // teardown function there.
 if (typeof teardown === 'function') {

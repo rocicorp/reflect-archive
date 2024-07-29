@@ -20,7 +20,6 @@
   "devDependencies": {
     "@rocicorp/eslint-config": "^0.5.1",
     "@rocicorp/prettier-config": "^0.2.0",
-    "prettier": "^3.0.3",
     "syncpack": "^12.3.2",
     "turbo": "^1.13.2",
     "vitest": "^2.0.3"

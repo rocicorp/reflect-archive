@@ -151,8 +151,8 @@ export async function runDeployment(
     const script = testScriptHandler
       ? testScriptHandler
       : scriptRef
-      ? new NamespacedScriptHandler(account, zone, scriptRef)
-      : new GlobalScriptHandler(account, zone, cfScriptName);
+        ? new NamespacedScriptHandler(account, zone, scriptRef)
+        : new GlobalScriptHandler(account, zone, cfScriptName);
 
     if (deploymentType === 'DELETE') {
       // For a DELETE, the Deployment lifecycle is 'REQUESTED' -> 'DEPLOYING' -> (document deleted) | 'FAILED'
