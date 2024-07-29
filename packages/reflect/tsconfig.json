@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "types": ["node"],
+    // For WebAssembly used by esbuild
+    "lib": ["esnext", "dom"],
+    "noEmit": true
+  },
+  "include": ["tool/*.js"]
+}

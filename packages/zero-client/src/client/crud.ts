@@ -1,3 +1,4 @@
+import type {MutatorDefs, WriteTransaction} from 'reflect-shared/src/types.js';
 import type {ReadonlyJSONObject} from 'shared/src/json.js';
 import {promiseVoid} from 'shared/src/resolved-promises.js';
 import type {MaybePromise} from 'shared/src/types.js';
@@ -15,7 +16,6 @@ import {
 import type {Entity} from 'zql/src/zql/schema/entity-schema.js';
 import {toEntitiesKey} from './keys.js';
 import type {QueryParseDefs} from './options.js';
-import type {MutatorDefs, WriteTransaction} from './replicache-types.js';
 import type {QueryDefs} from './zero.js';
 
 export type Parse<E extends Entity> = (v: ReadonlyJSONObject) => E;

@@ -1,0 +1,5 @@
+out
+.eslintrc.cjs
+jest.config.js
+templates/*
+src/script-templates/*
