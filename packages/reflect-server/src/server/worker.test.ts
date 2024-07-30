@@ -3,9 +3,9 @@ import type {LogLevel} from '@rocicorp/logger';
 import {version} from 'reflect-shared/src/version.js';
 import {createAPIHeaders} from 'shared/src/api/headers.js';
 import {assertString} from 'shared/src/asserts.js';
+import {TestLogSink} from 'shared/src/logging-test-utils.js';
 import type {Series} from '../types/report-metrics.js';
 import {Mocket, fail} from '../util/test-utils.js';
-import {TestLogSink} from 'shared/src/logging-test-utils.js';
 import {
   IncomingRequest,
   TestDurableObjectId,
@@ -316,7 +316,7 @@ test('worker forwards authDO api requests to authDO', async () => {
     );
     await testNotForwardedToAuthDo(
       new Request(tc.path, {
-        method: tc.path,
+        method: tc.method,
         // Note: no auth header.
         body: tc.body ? JSON.stringify(tc.body) : null,
       }),

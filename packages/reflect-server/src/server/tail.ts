@@ -21,6 +21,14 @@ class TailConsole implements Console {
   declare info: (...data: unknown[]) => void;
   declare log: (...data: unknown[]) => void;
   declare warn: (...data: unknown[]) => void;
+
+  static {
+    for (const level of ['debug', 'error', 'info', 'log', 'warn'] as const) {
+      this.prototype[level] = function (...data: unknown[]) {
+        log(level, data);
+      };
+    }
+  }
 }
 
 function log(level: Level, message: unknown[]) {
@@ -41,12 +49,6 @@ function log(level: Level, message: unknown[]) {
       originalConsole.error('Failed to send msg', err);
     }
   }
-}
-
-for (const level of ['debug', 'error', 'info', 'log', 'warn'] as const) {
-  TailConsole.prototype[level] = function (...data: unknown[]) {
-    log(level, data);
-  };
 }
 
 // Override the global console with our own ahead of time so that references to
