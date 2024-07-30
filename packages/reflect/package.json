@@ -27,7 +27,7 @@
     "@rocicorp/resolver": "^1.0.2",
     "esbuild": "^0.20.2",
     "miniflare": "^3.20231030.4",
-    "replicache": "file:../../replicache-15.0.1.tgz"
+    "replicache": "^15.1.0"
   },
   "peerDependencies": {
     "react": ">=16.0 <19.0",
