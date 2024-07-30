@@ -50,7 +50,7 @@ test('it should compile typescript', async () => {
   `);
 });
 
-test('it should replace @replicache/reflect/server', async () => {
+test('it should replace @rocicorp/reflect/server', async () => {
   const testFilePath = await writeTempFile(
     `import * as reflectServer from '@rocicorp/reflect/server';
 console.log(reflectServer);`,

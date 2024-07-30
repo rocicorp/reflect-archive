@@ -34,8 +34,8 @@ export async function loginHandler(
   const BASE_URL = yargs.local
     ? 'http://localhost:3000'
     : yargs.stack === 'prod'
-    ? `https://${PROD_DOMAIN}`
-    : `https://${SANDBOX_DOMAIN}`;
+      ? `https://${PROD_DOMAIN}`
+      : `https://${SANDBOX_DOMAIN}`;
   const urlToOpen = process.env.AUTH_URL || `${BASE_URL}/auth`;
 
   const loginResolver = resolver();

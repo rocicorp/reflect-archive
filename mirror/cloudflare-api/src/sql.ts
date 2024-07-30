@@ -98,8 +98,8 @@ function where(
     typeof val === 'string'
       ? `'${escapeString(val)}'`
       : val instanceof Date
-      ? `toDateTime(${Math.round(val.getTime() / 1000)})`
-      : val; // number
+        ? `toDateTime(${Math.round(val.getTime() / 1000)})`
+        : val; // number
   return `${expression} ${cmp} ${formattedVal}`;
 }
 

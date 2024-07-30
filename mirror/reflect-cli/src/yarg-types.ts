@@ -13,6 +13,5 @@ export interface CommonYargsOptions {
 
 export type CommonYargsArgv = Argv<CommonYargsOptions>;
 
-export type YargvToInterface<T> = T extends Argv<infer P>
-  ? ArgumentsCamelCase<P>
-  : never;
+export type YargvToInterface<T> =
+  T extends Argv<infer P> ? ArgumentsCamelCase<P> : never;

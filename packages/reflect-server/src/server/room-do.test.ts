@@ -7,14 +7,15 @@ import {
   test,
 } from '@jest/globals';
 import {LogContext} from '@rocicorp/logger';
-import assert from 'node:assert';
 import {subscribe, unsubscribe} from 'node:diagnostics_channel';
 import type {LogLevel, TailMessage} from 'reflect-protocol/src/tail.js';
 import type {MutatorDefs, WriteTransaction} from 'reflect-shared/src/types.js';
 import {version} from 'reflect-shared/src/version.js';
 import type {APIResponse} from 'shared/src/api/responses.js';
+import {assert} from 'shared/src/asserts.js';
 import {CONNECTION_SECONDS_CHANNEL_NAME} from 'shared/src/events/connection-seconds.js';
 import type {ReadonlyJSONValue} from 'shared/src/json.js';
+import {TestLogSink} from 'shared/src/logging-test-utils.js';
 import {Queue} from 'shared/src/queue.js';
 import {
   newCreateRoomRequest,
@@ -27,7 +28,6 @@ import {getUserValue, putUserValue} from '../types/user-value.js';
 import {getVersion, putVersion} from '../types/version.js';
 import {resolver} from '../util/resolver.js';
 import {sleep} from '../util/sleep.js';
-import {TestLogSink} from 'shared/src/logging-test-utils.js';
 import {originalConsole} from './console.js';
 import {createTestDurableObjectState} from './do-test-utils.js';
 import {AUTH_DATA_HEADER_NAME, addRoomIDHeader} from './internal-headers.js';
@@ -693,7 +693,7 @@ describe('tail', () => {
     expect(tailConsoleLogSpy).toHaveBeenCalledTimes(1);
     expect(tailConsoleLogSpy).toHaveBeenCalledWith('hello', 'world');
 
-    tailConsoleLogSpy.mockReset();
+    tailConsoleLogSpy.mockClear();
 
     // Wait for addEventListener to get called
     await promise;
@@ -734,7 +734,7 @@ describe('tail', () => {
     await Promise.resolve();
 
     expect(tailConsoleLogSpy).toHaveBeenCalledTimes(1);
-    tailConsoleLogSpy.mockReset();
+    tailConsoleLogSpy.mockClear();
 
     // This should be logged to the original console... which is spied on by
     // originalConsoleLogSpy.

@@ -37,8 +37,9 @@ import {
   UpdateNeededReason as ReplicacheUpdateNeededReason,
   SubscribeOptions,
   dropDatabase,
+  type MakeMutators,
 } from 'replicache';
-import {ReplicacheImpl} from 'replicache/src/replicache-impl.js';
+import {ReplicacheImpl} from 'replicache/impl';
 import {assert} from 'shared/src/asserts.js';
 import {getDocumentVisibilityWatcher} from 'shared/src/document-visible.js';
 import {getDocument} from 'shared/src/get-document.js';
@@ -479,7 +480,7 @@ export class Reflect<MD extends MutatorDefs> {
   /**
    * The registered mutators (see [[ReflectOptions.mutators]]).
    */
-  get mutate() {
+  get mutate(): MakeMutators<MD> {
     return this.#rep.mutate;
   }
 

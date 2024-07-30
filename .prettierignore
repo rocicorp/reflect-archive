@@ -5,10 +5,6 @@ lib
 
 packages/reflect-server/out
 packages/reflect/out
-packages/replicache/out
-packages/replicache/doc/build/
-packages/replicache/doc/docs/api
-packages/replicache/doc/.docusaurus/
 **/.next
 **/.vercel
 renderer

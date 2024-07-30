@@ -56,8 +56,6 @@ function getVersion(name) {
 export function makeDefine(mode = 'unknown') {
   /** @type {Record<string, string>} */
   const define = {
-    ['REPLICACHE_VERSION']: JSON.stringify(getVersion('replicache')),
-    ['ZERO_VERSION']: JSON.stringify(getVersion('zero-client')),
     ['REFLECT_VERSION']: JSON.stringify(getVersion('reflect')),
     ['REFLECT_CLI_NAME']: JSON.stringify('reflect-cli'),
     ['TESTING']: 'false',
